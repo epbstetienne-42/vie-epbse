@@ -241,7 +241,7 @@ function rAccueil(s){
   const td=today();
   const up=EVENTS.filter(e=>e.date>=td).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time));
   const sw=up.filter(e=>(new Date(e.date+'T12:00:00')-new Date())/86400000<=7);
-  document.getElementById('hs').textContent=`<span class="sync-dot"></span>${sw.length} événement${sw.length>1?'s':''} · sync en temps réel`;
+  document.getElementById("hs").innerHTML=`<span class="sync-dot"></span>${sw.length} événement${sw.length>1?'s':''} · sync en temps réel`;
   const nxt=up[0];
   let h='';
   if(nxt){
