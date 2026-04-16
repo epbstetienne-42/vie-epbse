@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta name="theme-color" content="#1A3A5C"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <meta name="apple-mobile-web-app-title" content="Vie EPBSE"/>
-  <meta name="description" content="Événements et vie de l'Église Protestante Baptiste de Saint-Étienne"/>
+  <meta name="description" content="Vie de l'Église Protestante Baptiste de Saint-Étienne"/>
   <title>Vie EPBSE</title>
   <link rel="manifest" href="manifest.json"/>
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"/>
   <link rel="apple-touch-icon" href="icons/icon-192.png"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    :root{--navy:#1A3A5C;--teal:#1D9E75;--teal-l:#E1F5EE;--gold-l:#FDF3DC;--coral-l:#FAECE7;--purple-l:#EEEDFE;--bg:#F4F6F9;--surface:#FFFFFF;--text:#0F1923;--text2:#4A5568;--text3:#8A96A3;--border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);--r:14px;--rs:8px;--safe-bottom:env(safe-area-inset-bottom,0px);}
+    :root{--navy:#1A3A5C;--teal:#1D9E75;--bg:#F4F6F9;--surface:#FFFFFF;--text:#0F1923;--text2:#4A5568;--text3:#8A96A3;--border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);--r:14px;--rs:8px;--safe-bottom:env(safe-area-inset-bottom,0px);}
     *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
     html,body{height:100%;overflow:hidden;}
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;max-width:430px;margin:0 auto;}
@@ -25,8 +24,7 @@
     #screen{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:12px;}
     #navbar{background:var(--surface);border-top:0.5px solid var(--border2);display:flex;padding:6px 0 calc(6px + var(--safe-bottom));flex-shrink:0;}
     .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px 4px;cursor:pointer;user-select:none;}
-    .ni:active{opacity:.6;}
-    .ni svg{width:24px;height:24px;}
+    .ni:active{opacity:.6;} .ni svg{width:24px;height:24px;}
     .nl{font-size:10px;color:var(--text3);}
     .ni.active .nl{color:var(--navy);font-weight:600;}
     .ndot{width:4px;height:4px;border-radius:50%;background:var(--navy);margin-top:1px;}
@@ -42,12 +40,10 @@
     .brecur{background:var(--bg);color:var(--text3);border:0.5px solid var(--border2);}
     .notif{background:var(--teal);margin:8px 12px;border-radius:var(--r);padding:12px 14px;display:flex;gap:12px;align-items:center;}
     .nib{width:36px;height:36px;border-radius:var(--rs);background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-    .nt{font-size:13px;font-weight:600;color:#fff;}
-    .nb{font-size:12px;color:rgba(255,255,255,.8);margin-top:2px;}
+    .nt{font-size:13px;font-weight:600;color:#fff;} .nb{font-size:12px;color:rgba(255,255,255,.8);margin-top:2px;}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 12px 4px;}
     .sc{background:var(--surface);border-radius:var(--rs);border:0.5px solid var(--border);padding:10px 12px;text-align:center;}
-    .sn{font-size:22px;font-weight:600;color:var(--navy);}
-    .sl{font-size:10px;color:var(--text3);margin-top:1px;}
+    .sn{font-size:22px;font-weight:600;color:var(--navy);} .sl{font-size:10px;color:var(--text3);margin-top:1px;}
     .wwrap{margin:0 12px 8px;overflow-x:auto;}
     .wtable{background:var(--surface);border-radius:var(--r);border:0.5px solid var(--border);overflow:hidden;min-width:340px;width:100%;}
     .wkh{display:grid;grid-template-columns:38px repeat(7,1fr);background:var(--navy);}
@@ -59,32 +55,31 @@
     .tcard{background:var(--surface);margin:0 12px 8px;border-radius:var(--r);border:0.5px solid var(--border);overflow:hidden;}
     .thead{display:flex;align-items:center;gap:12px;padding:12px 14px;}
     .ticon{width:40px;height:40px;border-radius:var(--rs);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-    .tname{font-size:14px;font-weight:600;color:var(--text);}
-    .tsub{font-size:12px;color:var(--text3);margin-top:2px;}
+    .tname{font-size:14px;font-weight:600;color:var(--text);} .tsub{font-size:12px;color:var(--text3);margin-top:2px;}
     .mlist{border-top:0.5px solid var(--border);}
     .mrow{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:0.5px solid var(--border);}
     .mrow:last-child{border-bottom:none;}
     .ava{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
     .mname{font-size:13px;font-weight:500;color:var(--text);flex:1;}
     .rpill{font-size:10px;font-weight:500;padding:3px 8px;border-radius:20px;}
-    .pin-bg{min-height:500px;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.5);}
-    .pin-sheet{background:var(--surface);border-radius:22px 22px 0 0;padding:24px 20px 32px;width:100%;text-align:center;}
-    .pin-handle{width:36px;height:4px;border-radius:2px;background:var(--border2);margin:0 auto 20px;}
-    .pin-title{font-size:16px;font-weight:600;color:var(--text);margin-bottom:6px;}
-    .pin-sub{font-size:13px;color:var(--text3);margin-bottom:20px;}
-    .pin-dots{display:flex;justify-content:center;gap:14px;margin-bottom:24px;}
-    .pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--border2);background:var(--bg);}
-    .pin-dot.filled{background:var(--navy);border-color:var(--navy);}
-    .pin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:260px;margin:0 auto;}
-    .pin-key{padding:14px;border-radius:var(--rs);background:var(--bg);border:0.5px solid var(--border2);font-size:18px;font-weight:600;color:var(--text);cursor:pointer;font-family:'DM Sans',sans-serif;}
-    .pin-key:active{background:var(--border2);}
-    .pin-err{font-size:12px;color:#E24B4A;margin-top:12px;min-height:18px;}
+    .auth-wrap{min-height:480px;display:flex;align-items:center;justify-content:center;padding:24px;}
+    .auth-card{background:var(--surface);border-radius:var(--r);border:0.5px solid var(--border);padding:28px 24px;width:100%;text-align:center;}
+    .auth-icon{width:64px;height:64px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+    .auth-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px;}
+    .auth-sub{font-size:13px;color:var(--text3);margin-bottom:24px;line-height:1.5;}
+    .google-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px;border-radius:var(--rs);background:#fff;border:1px solid var(--border2);cursor:pointer;font-size:14px;font-weight:500;color:var(--text);font-family:'DM Sans',sans-serif;transition:background .15s;}
+    .google-btn:active{background:var(--bg);}
+    .auth-err{font-size:12px;color:#E24B4A;margin-top:12px;min-height:18px;}
+    .user-bar{display:flex;align-items:center;gap:10px;background:var(--surface);margin:8px 12px;border-radius:var(--rs);border:0.5px solid var(--border);padding:10px 14px;}
+    .user-ava{width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+    .user-ava-ph{width:32px;height:32px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0;}
+    .user-name{font-size:13px;font-weight:500;color:var(--text);flex:1;} .user-email{font-size:11px;color:var(--text3);}
+    .so-btn{font-size:11px;padding:5px 10px;border-radius:20px;background:var(--bg);border:0.5px solid var(--border2);color:var(--text3);cursor:pointer;font-family:'DM Sans',sans-serif;}
     .ali{background:var(--surface);margin:0 12px 6px;border-radius:var(--rs);border:0.5px solid var(--border);padding:11px 14px;display:flex;align-items:center;gap:10px;}
     .adot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
-    .atitle{font-size:13px;font-weight:500;color:var(--text);flex:1;}
-    .adate{font-size:11px;color:var(--text3);}
-    .del-btn{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 6px;color:#E24B4A;flex-shrink:0;}
-    .edit-btn{background:none;border:none;cursor:pointer;font-size:14px;padding:4px 6px;color:var(--text3);flex-shrink:0;}
+    .atitle{font-size:13px;font-weight:500;color:var(--text);flex:1;} .adate{font-size:11px;color:var(--text3);}
+    .del-btn{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 6px;color:#E24B4A;}
+    .edit-btn{background:none;border:none;cursor:pointer;font-size:14px;padding:4px 6px;color:var(--text3);}
     .fab{width:52px;height:52px;border-radius:50%;background:var(--navy);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;margin:4px 12px 4px auto;transition:transform .1s;}
     .fab:active{transform:scale(.93);}
     .modal-bg{min-height:540px;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.45);}
@@ -92,26 +87,23 @@
     .mhandle{width:36px;height:4px;border-radius:2px;background:var(--border2);margin:0 auto 16px;}
     .mtitle{font-size:16px;font-weight:600;color:var(--text);margin-bottom:16px;}
     .flabel{font-size:12px;font-weight:500;color:var(--text2);margin-bottom:5px;}
-    .finput{width:100%;font-size:13px;font-family:'DM Sans',sans-serif;padding:10px 12px;border-radius:var(--rs);border:1px solid var(--border2);background:var(--bg);color:var(--text);outline:none;transition:border-color .15s;}
+    .finput{width:100%;font-size:13px;font-family:'DM Sans',sans-serif;padding:10px 12px;border-radius:var(--rs);border:1px solid var(--border2);background:var(--bg);color:var(--text);outline:none;}
     .finput:focus{border-color:var(--navy);}
-    .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-    .fg{margin-bottom:12px;}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;} .fg{margin-bottom:12px;}
     .chips{display:flex;flex-wrap:wrap;gap:6px;}
-    .chip{font-size:11px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;transition:all .12s;}
+    .chip{font-size:11px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;}
     .chip.on{background:var(--navy);color:#fff;border-color:var(--navy);}
     .btnrow{display:flex;gap:8px;margin-top:18px;}
     .bsave{flex:1;padding:12px;border-radius:var(--rs);background:var(--navy);color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
-    .bsave:active{opacity:.8;}
     .bcanc{padding:12px 16px;border-radius:var(--rs);background:var(--bg);color:var(--text2);font-size:14px;border:1px solid var(--border2);cursor:pointer;font-family:'DM Sans',sans-serif;}
     .bdel{padding:12px 16px;border-radius:var(--rs);background:#FCEBEB;color:#A32D2D;font-size:14px;border:1px solid #F09595;cursor:pointer;font-family:'DM Sans',sans-serif;}
-    .logout-btn{display:block;margin:8px 12px 0;padding:10px;border-radius:var(--rs);background:var(--bg);border:0.5px solid var(--border2);color:var(--text3);font-size:12px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif;}
     .stabs{display:flex;gap:8px;padding:8px 12px 0;overflow-x:auto;}
     .stab{font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:0.5px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;white-space:nowrap;}
     .stab.on{background:var(--navy);color:#fff;border-color:var(--navy);}
     .merow{display:flex;align-items:center;gap:8px;padding:8px 14px;border-bottom:0.5px solid var(--border);}
     .merow:last-child{border-bottom:none;}
     .loading{display:flex;align-items:center;justify-content:center;padding:40px;color:var(--text3);font-size:13px;}
-    .sync-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;margin-right:6px;animation:pulse 1.5s infinite;}
+    .sdot{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;margin-right:6px;animation:pulse 1.5s infinite;}
     @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
   </style>
 </head>
@@ -121,7 +113,7 @@
   <div id="ht">Vie EPBSE</div>
   <div id="hs">Connexion…</div>
 </div>
-<div id="screen"><div class="loading"><span class="sync-dot"></span>Chargement…</div></div>
+<div id="screen"><div class="loading"><span class="sdot"></span>Chargement…</div></div>
 <nav id="navbar">
   <div class="ni active" data-s="accueil" onclick="go('accueil')">
     <svg viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V11.5z" stroke="#1A3A5C" stroke-width="1.6"/><rect x="9" y="15" width="6" height="7" rx="1" stroke="#1A3A5C" stroke-width="1.6"/></svg>
@@ -140,343 +132,136 @@
     <div class="nl">Admin</div>
   </div>
 </nav>
-
 <script type="module">
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getFirestore, collection, doc, getDocs, addDoc, updateDoc, deleteDoc, onSnapshot, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import{getFirestore,collection,doc,addDoc,updateDoc,deleteDoc,onSnapshot,getDocs}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import{getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyACko46r9xqkamWAWGMmVsB8_eNSWz-yB4",
-  authDomain: "vie-epbse.firebaseapp.com",
-  projectId: "vie-epbse",
-  storageBucket: "vie-epbse.firebasestorage.app",
-  messagingSenderId: "157013246059",
-  appId: "1:157013246059:web:ca58234fbf83df4945312e"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const FC={apiKey:"AIzaSyACko46r9xqkamWAWGMmVsB8_eNSWz-yB4",authDomain:"vie-epbse.firebaseapp.com",projectId:"vie-epbse",storageBucket:"vie-epbse.firebasestorage.app",messagingSenderId:"157013246059",appId:"1:157013246059:web:ca58234fbf83df4945312e"};
+const ADMINS=['epbstetienne@gmail.com','chantavong.victor@gmail.com'];
+const app=initializeApp(FC);
+const db=getFirestore(app);
+const auth=getAuth(app);
+const gp=new GoogleAuthProvider();
 
 const BS={son:{bg:'#EEEDFE',c:'#3C3489'},louange:{bg:'#FDF3DC',c:'#854F0B'},menage:{bg:'#E1F5EE',c:'#085041'},ed:{bg:'#E6F1FB',c:'#0C447C'},all:{bg:'#F1EFE8',c:'#444441'},conseil:{bg:'#FAECE7',c:'#712B13'}};
 const BL={son:'Son',louange:'Louange',menage:'Ménage',ed:'Éc. dimanche',all:'Tous',conseil:'Conseil'};
-const MCOLS=[['#534AB7','#EEEDFE'],['#EF9F27','#FDF3DC'],['#1D9E75','#E1F5EE'],['#378ADD','#E6F1FB'],['#D85A30','#FAECE7'],['#888780','#F1EFE8']];
-const TCOLS=['#EEEDFE','#FDF3DC','#E1F5EE','#E6F1FB','#FAECE7','#F1EFE8'];
-const PIN='4200';
+const MC=[['#534AB7','#EEEDFE'],['#EF9F27','#FDF3DC'],['#1D9E75','#E1F5EE'],['#378ADD','#E6F1FB'],['#D85A30','#FAECE7'],['#888780','#F1EFE8']];
+const TC=['#EEEDFE','#FDF3DC','#E1F5EE','#E6F1FB','#FAECE7','#F1EFE8'];
 
-let EVENTS=[], TEAMS=[];
-let cur='accueil', adminUnlocked=false, pinEntry='';
-let adminTab='events', modalType='', editEvtId=null, editTeamId=null, editMemberId=null;
-let selTeams=[], selColorIdx=0;
-let loaded=false;
+let EV=[],TM=[],cur='accueil',user=null,loaded=false;
+let atab='events',mt='',eeid=null,etid=null,emid=null,st=[],sci=0;
 
-function fmtD(d){return new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});}
-function fmtT(t){return t.replace(':','h');}
-function today(){return new Date().toISOString().split('T')[0];}
-function ini(n){return(n||'').split(' ').map(w=>w[0]||'').join('').toUpperCase().slice(0,2)||'?';}
-function bdg(t){const s=BS[t]||{bg:'#eee',c:'#555'};return`<span class="badge" style="background:${s.bg};color:${s.c};">${BL[t]||t}</span>`;}
+const isAdmin=u=>u&&ADMINS.includes(u.email);
+const fmtD=d=>new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+const fmtT=t=>t.replace(':','h');
+const td=()=>new Date().toISOString().split('T')[0];
+const ini=n=>(n||'').split(' ').map(w=>w[0]||'').join('').toUpperCase().slice(0,2)||'?';
+const bdg=t=>{const s=BS[t]||{bg:'#eee',c:'#555'};return`<span class="badge" style="background:${s.bg};color:${s.c};">${BL[t]||t}</span>`;};
 
-// ── Firestore listeners ──
-onSnapshot(collection(db,'events'), snap=>{
-  EVENTS=snap.docs.map(d=>({id:d.id,...d.data()}));
-  if(loaded) render();
-});
-onSnapshot(collection(db,'teams'), snap=>{
-  TEAMS=snap.docs.map(d=>({id:d.id,...d.data()}));
-  loaded=true;
-  document.getElementById('hs').textContent=`Données synchronisées`;
-  render();
-});
+onAuthStateChanged(auth,u=>{user=u;if(loaded)render();});
+onSnapshot(collection(db,'events'),snap=>{EV=snap.docs.map(d=>({id:d.id,...d.data()}));if(loaded)render();});
+onSnapshot(collection(db,'teams'),snap=>{TM=snap.docs.map(d=>({id:d.id,...d.data()}));loaded=true;document.getElementById('hs').innerHTML='<span class="sdot"></span>Données synchronisées';render();});
 
-// ── Seed default data if empty ──
-async function seedIfEmpty(){
-  const evSnap=await getDocs(collection(db,'events'));
-  if(evSnap.empty){
-    const defEvts=[
-      {title:'Culte du dimanche',date:'2026-04-27',time:'10:00',color:'#1A3A5C',teams:['son','louange','all'],recur:'Chaque dimanche',notes:''},
-      {title:'École du dimanche',date:'2026-04-27',time:'10:00',color:'#185FA5',teams:['ed'],recur:'Chaque dimanche',notes:'Groupe 6–12 ans'},
-      {title:'Répétition louange',date:'2026-04-25',time:'19:00',color:'#854F0B',teams:['louange','son'],recur:'Vendredi soir',notes:'Salle principale'},
-      {title:'Ménage du local',date:'2026-04-26',time:'09:00',color:'#0F6E56',teams:['menage'],recur:'Samedi matin',notes:'Nef + toilettes'},
-    ];
-    for(const e of defEvts) await addDoc(collection(db,'events'),e);
+async function seed(){
+  const es=await getDocs(collection(db,'events'));
+  if(es.empty){
+    const def=[{title:'Culte du dimanche',date:'2026-04-27',time:'10:00',color:'#1A3A5C',teams:['son','louange','all'],recur:'Chaque dimanche',notes:''},{title:'École du dimanche',date:'2026-04-27',time:'10:00',color:'#185FA5',teams:['ed'],recur:'Chaque dimanche',notes:'Groupe 6-12 ans'},{title:'Répétition louange',date:'2026-04-25',time:'19:00',color:'#854F0B',teams:['louange','son'],recur:'Vendredi soir',notes:'Salle principale'},{title:'Ménage du local',date:'2026-04-26',time:'09:00',color:'#0F6E56',teams:['menage'],recur:'Samedi matin',notes:'Nef + toilettes'}];
+    for(const e of def)await addDoc(collection(db,'events'),e);
   }
-  const tSnap=await getDocs(collection(db,'teams'));
-  if(tSnap.empty){
-    const defTeams=[
-      {name:'Équipe sonorisation',icon:'🎚',iconBg:'#EEEDFE',order:0,members:[{id:1,name:'Victor',role:'Resp. son',ini:'VI',bg:'#534AB7',tc:'#EEEDFE'},{id:2,name:'Etienne',role:'Technicien',ini:'ET',bg:'#7F77DD',tc:'#EEEDFE'}]},
-      {name:'Équipe louange',icon:'🎵',iconBg:'#FDF3DC',order:1,members:[{id:3,name:'Sarah',role:'Resp. louange',ini:'SA',bg:'#EF9F27',tc:'#FDF3DC'},{id:4,name:'David',role:'Guitare',ini:'DA',bg:'#FAC775',tc:'#633806'}]},
-      {name:'Équipe ménage',icon:'🧹',iconBg:'#E1F5EE',order:2,members:[{id:5,name:'Marie',role:'Coordinatrice',ini:'MI',bg:'#1D9E75',tc:'#E1F5EE'}]},
-      {name:'École du dimanche',icon:'📖',iconBg:'#E6F1FB',order:3,members:[{id:6,name:'Esther',role:'Responsable',ini:'ES',bg:'#378ADD',tc:'#E6F1FB'}]},
-    ];
-    for(const t of defTeams) await addDoc(collection(db,'teams'),t);
+  const ts=await getDocs(collection(db,'teams'));
+  if(ts.empty){
+    const def=[{name:'Équipe sonorisation',icon:'🎚',iconBg:'#EEEDFE',order:0,members:[{id:1,name:'Victor',role:'Resp. son',ini:'VI',bg:'#534AB7',tc:'#EEEDFE'},{id:2,name:'Etienne',role:'Technicien',ini:'ET',bg:'#7F77DD',tc:'#EEEDFE'}]},{name:'Équipe louange',icon:'🎵',iconBg:'#FDF3DC',order:1,members:[{id:3,name:'Sarah',role:'Resp. louange',ini:'SA',bg:'#EF9F27',tc:'#FDF3DC'}]},{name:'Équipe ménage',icon:'🧹',iconBg:'#E1F5EE',order:2,members:[{id:4,name:'Marie',role:'Coordinatrice',ini:'MI',bg:'#1D9E75',tc:'#E1F5EE'}]},{name:'École du dimanche',icon:'📖',iconBg:'#E6F1FB',order:3,members:[{id:5,name:'Esther',role:'Responsable',ini:'ES',bg:'#378ADD',tc:'#E6F1FB'}]}];
+    for(const t of def)await addDoc(collection(db,'teams'),t);
   }
 }
-seedIfEmpty();
+seed();
 
-// ── Navigation ──
-function go(s){
-  cur=s; modalType=''; editEvtId=null; editTeamId=null; editMemberId=null; selTeams=[];
-  document.querySelectorAll('.ni').forEach(el=>{
-    const on=el.dataset.s===s;
-    el.classList.toggle('active',on);
-    el.querySelector('.nl').style.color=on?'var(--navy)':'';
-    const d=el.querySelector('.ndot');if(d)d.remove();
-    if(on){const nd=document.createElement('div');nd.className='ndot';el.appendChild(nd);}
-  });
-  render();
-}
+function go(s){cur=s;mt='';eeid=null;etid=null;emid=null;st=[];document.querySelectorAll('.ni').forEach(el=>{const on=el.dataset.s===s;el.classList.toggle('active',on);el.querySelector('.nl').style.color=on?'var(--navy)':'';const d=el.querySelector('.ndot');if(d)d.remove();if(on){const nd=document.createElement('div');nd.className='ndot';el.appendChild(nd);}});render();}
 window.go=go;
 
-function render(){
-  if(!loaded) return;
-  const sc=document.getElementById('screen');
-  if(cur==='accueil') rAccueil(sc);
-  else if(cur==='planning') rPlanning(sc);
-  else if(cur==='equipes') rEquipes(sc);
-  else if(cur==='admin') rAdmin(sc);
-}
+function render(){if(!loaded)return;const sc=document.getElementById('screen');if(cur==='accueil')rA(sc);else if(cur==='planning')rP(sc);else if(cur==='equipes')rE(sc);else if(cur==='admin')rAd(sc);}
 
-function rAccueil(s){
+function rA(s){
   document.getElementById('hg').textContent='Église Protestante Baptiste';
   document.getElementById('ht').textContent='Vie EPBSE';
-  const td=today();
-  const up=EVENTS.filter(e=>e.date>=td).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time));
-  const sw=up.filter(e=>(new Date(e.date+'T12:00:00')-new Date())/86400000<=7);
-  document.getElementById("hs").innerHTML=`<span class="sync-dot"></span>${sw.length} événement${sw.length>1?'s':''} · sync en temps réel`;
-  const nxt=up[0];
-  let h='';
-  if(nxt){
-    const diff=Math.ceil((new Date(nxt.date+'T12:00:00')-new Date())/86400000);
-    const when=diff<=0?"aujourd'hui":diff===1?'demain':`dans ${diff} jours`;
-    h+=`<div class="notif"><div class="nib"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1a6 6 0 016 6c0 3.5 1.5 5 1.5 5h-15S3 10.5 3 7a6 6 0 016-6zM7 14a2 2 0 004 0" stroke="#fff" stroke-width="1.4"/></svg></div><div><div class="nt">Prochain : ${nxt.title}</div><div class="nb">${fmtD(nxt.date)} · ${fmtT(nxt.time)} · <strong>${when}</strong></div></div></div>`;
-  }
-  h+=`<div class="stats"><div class="sc"><div class="sn">${up.length}</div><div class="sl">À venir</div></div><div class="sc"><div class="sn">${sw.length}</div><div class="sl">Cette sem.</div></div><div class="sc"><div class="sn">${TEAMS.reduce((a,t)=>a+(t.members||[]).length,0)}</div><div class="sl">Bénévoles</div></div></div>`;
+  const t=td(),up=EV.filter(e=>e.date>=t).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time)),sw=up.filter(e=>(new Date(e.date+'T12:00:00')-new Date())/86400000<=7);
+  document.getElementById('hs').innerHTML=`<span class="sdot"></span>${sw.length} événement${sw.length>1?'s':''} · sync temps réel`;
+  const nxt=up[0];let h='';
+  if(nxt){const diff=Math.ceil((new Date(nxt.date+'T12:00:00')-new Date())/86400000),when=diff<=0?"aujourd'hui":diff===1?'demain':`dans ${diff} jours`;h+=`<div class="notif"><div class="nib"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1a6 6 0 016 6c0 3.5 1.5 5 1.5 5h-15S3 10.5 3 7a6 6 0 016-6zM7 14a2 2 0 004 0" stroke="#fff" stroke-width="1.4"/></svg></div><div><div class="nt">Prochain : ${nxt.title}</div><div class="nb">${fmtD(nxt.date)} · ${fmtT(nxt.time)} · <strong>${when}</strong></div></div></div>`;}
+  h+=`<div class="stats"><div class="sc"><div class="sn">${up.length}</div><div class="sl">À venir</div></div><div class="sc"><div class="sn">${sw.length}</div><div class="sl">Cette sem.</div></div><div class="sc"><div class="sn">${TM.reduce((a,t)=>a+(t.members||[]).length,0)}</div><div class="sl">Bénévoles</div></div></div>`;
   h+='<div class="sh">Prochains événements</div>';
-  up.slice(0,6).forEach(e=>{
-    h+=`<div class="ecard"><div class="etop"><div class="eacc" style="background:${e.color};"></div><div style="flex:1;"><div class="en">${e.title}</div><div class="ed">${fmtD(e.date)} · ${fmtT(e.time)}</div>${e.notes?`<div class="enote">${e.notes}</div>`:''}</div></div><div class="brow">${(e.teams||[]).map(t=>bdg(t)).join('')}${e.recur?`<span class="badge brecur">↻ ${e.recur}</span>`:''}</div></div>`;
-  });
+  up.slice(0,6).forEach(e=>{h+=`<div class="ecard"><div class="etop"><div class="eacc" style="background:${e.color};"></div><div style="flex:1;"><div class="en">${e.title}</div><div class="ed">${fmtD(e.date)} · ${fmtT(e.time)}</div>${e.notes?`<div class="enote">${e.notes}</div>`:''}</div></div><div class="brow">${(e.teams||[]).map(t=>bdg(t)).join('')}${e.recur?`<span class="badge brecur">↻ ${e.recur}</span>`:''}</div></div>`;});
   s.innerHTML=h;
 }
 
-function rPlanning(s){
-  document.getElementById('hg').textContent='Vue calendrier';
-  document.getElementById('ht').textContent='Planning';
-  const now=new Date();
-  const monday=new Date(now);monday.setDate(now.getDate()-now.getDay()+1);
-  const DAYS=Array.from({length:7},(_,i)=>{const d=new Date(monday);d.setDate(monday.getDate()+i);return{d:['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'][i],dt:String(d.getDate()).padStart(2,'0'),full:d.toISOString().split('T')[0]};});
+function rP(s){
+  document.getElementById('hg').textContent='Vue calendrier';document.getElementById('ht').textContent='Planning';
+  const now=new Date(),mon=new Date(now);mon.setDate(now.getDate()-((now.getDay()+6)%7));
+  const DAYS=Array.from({length:7},(_,i)=>{const d=new Date(mon);d.setDate(mon.getDate()+i);return{d:['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'][i],dt:String(d.getDate()).padStart(2,'0'),full:d.toISOString().split('T')[0]};});
   document.getElementById('hs').textContent=`Semaine du ${DAYS[0].dt} au ${DAYS[6].dt}`;
-  const SLOTS=['08h','09h','10h','11h','18h','19h','20h'];
-  const wEvts=EVENTS.filter(e=>DAYS.some(d=>d.full===e.date));
+  const SL=['08h','09h','10h','11h','18h','19h','20h'],wE=EV.filter(e=>DAYS.some(d=>d.full===e.date));
   let h='<div class="sh">Cette semaine</div><div class="wwrap"><div class="wtable"><div class="wkh"><div class="wkhc"></div>';
-  DAYS.forEach(d=>{h+=`<div class="wkhc">${d.d}<br><span style="opacity:.6;font-size:9px;">${d.dt}</span></div>`;});
-  h+='</div>';
-  SLOTS.forEach(slot=>{
-    h+=`<div class="wkr"><div class="wkt">${slot}</div>`;
-    DAYS.forEach(day=>{
-      const m=wEvts.filter(e=>e.date===day.full&&parseInt(e.time)===parseInt(slot));
-      h+=`<div class="wkc">${m.map(x=>`<div class="wke" style="background:${x.color};">${x.title.split(' ').slice(0,2).join(' ')}</div>`).join('')}</div>`;
-    });
-    h+='</div>';
-  });
-  h+='</div></div>';
-  const td=today();
-  const all=EVENTS.slice().sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time));
-  h+='<div class="sh">À venir</div>';
-  all.filter(e=>e.date>=td).forEach(e=>{
-    h+=`<div class="ecard"><div class="etop"><div class="eacc" style="background:${e.color};"></div><div style="flex:1;"><div class="en">${e.title}</div><div class="ed">${fmtD(e.date)} · ${fmtT(e.time)}</div></div></div><div class="brow">${(e.teams||[]).map(t=>bdg(t)).join('')}</div></div>`;
-  });
+  DAYS.forEach(d=>{h+=`<div class="wkhc">${d.d}<br><span style="opacity:.6;font-size:9px;">${d.dt}</span></div>`;});h+='</div>';
+  SL.forEach(sl=>{h+=`<div class="wkr"><div class="wkt">${sl}</div>`;DAYS.forEach(day=>{const m=wE.filter(e=>e.date===day.full&&parseInt(e.time)===parseInt(sl));h+=`<div class="wkc">${m.map(x=>`<div class="wke" style="background:${x.color};">${x.title.split(' ').slice(0,2).join(' ')}</div>`).join('')}</div>`;});h+='</div>';});
+  h+='</div></div><div class="sh">À venir</div>';
+  EV.slice().sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time)).filter(e=>e.date>=td()).forEach(e=>{h+=`<div class="ecard"><div class="etop"><div class="eacc" style="background:${e.color};"></div><div style="flex:1;"><div class="en">${e.title}</div><div class="ed">${fmtD(e.date)} · ${fmtT(e.time)}</div></div></div><div class="brow">${(e.teams||[]).map(t=>bdg(t)).join('')}</div></div>`;});
   s.innerHTML=h;
 }
 
-function rEquipes(s){
-  document.getElementById('hg').textContent='Responsables & bénévoles';
-  document.getElementById('ht').textContent='Équipes';
-  document.getElementById('hs').textContent=`${TEAMS.length} équipes · ${TEAMS.reduce((a,t)=>a+(t.members||[]).length,0)} membres`;
-  let h='';
-  TEAMS.slice().sort((a,b)=>(a.order||0)-(b.order||0)).forEach(t=>{
-    h+=`<div class="sh">${t.name}</div><div class="tcard"><div class="thead"><div class="ticon" style="background:${t.iconBg};">${t.icon}</div><div><div class="tname">${t.name}</div><div class="tsub">${(t.members||[]).length} membre${(t.members||[]).length>1?'s':''}</div></div></div><div class="mlist">${(t.members||[]).map(m=>`<div class="mrow"><div class="ava" style="background:${m.bg};color:${m.tc};">${m.ini||ini(m.name)}</div><span class="mname">${m.name}</span><span class="rpill" style="background:${t.iconBg};color:${m.bg};">${m.role}</span></div>`).join('')}</div></div>`;
-  });
+function rE(s){
+  document.getElementById('hg').textContent='Responsables & bénévoles';document.getElementById('ht').textContent='Équipes';document.getElementById('hs').textContent=`${TM.length} équipes · ${TM.reduce((a,t)=>a+(t.members||[]).length,0)} membres`;
+  let h='';TM.slice().sort((a,b)=>(a.order||0)-(b.order||0)).forEach(t=>{h+=`<div class="sh">${t.name}</div><div class="tcard"><div class="thead"><div class="ticon" style="background:${t.iconBg};">${t.icon}</div><div><div class="tname">${t.name}</div><div class="tsub">${(t.members||[]).length} membre${(t.members||[]).length>1?'s':''}</div></div></div><div class="mlist">${(t.members||[]).map(m=>`<div class="mrow"><div class="ava" style="background:${m.bg};color:${m.tc};">${m.ini||ini(m.name)}</div><span class="mname">${m.name}</span><span class="rpill" style="background:${t.iconBg};color:${m.bg};">${m.role}</span></div>`).join('')}</div></div>`;});
   s.innerHTML=h;
 }
 
-function rAdmin(s){
-  document.getElementById('hg').textContent='Gestion';
-  document.getElementById('ht').textContent='Administration';
-  document.getElementById('hs').textContent=adminUnlocked?'Session active':'Réservé aux responsables';
+function rAd(s){
+  document.getElementById('hg').textContent='Administration';document.getElementById('ht').textContent='Espace responsables';document.getElementById('hs').textContent=user?`Connecté : ${user.email}`:'Non connecté';
+  if(!user){s.innerHTML=`<div class="auth-wrap"><div class="auth-card"><div class="auth-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4a4 4 0 100 8 4 4 0 000-8zM6 22c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div><div class="auth-title">Espace responsables</div><div class="auth-sub">Connectez-vous avec votre compte Google autorisé.</div><button class="google-btn" onclick="sIn()"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/><path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>Se connecter avec Google</button><div class="auth-err" id="aerr"></div></div></div>`;return;}
+  if(!isAdmin(user)){s.innerHTML=`<div class="auth-wrap"><div class="auth-card"><div class="auth-icon" style="background:#E24B4A;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l10 18H4L14 4z" stroke="#fff" stroke-width="2"/><path d="M14 11v5M14 18v1" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div><div class="auth-title">Accès refusé</div><div class="auth-sub">Le compte <strong>${user.email}</strong> n'est pas autorisé.</div><button class="google-btn" onclick="sOut()" style="margin-top:8px;">Se déconnecter</button></div></div>`;return;}
 
-  if(!adminUnlocked){
-    pinEntry='';
-    s.innerHTML=`<div class="pin-bg"><div class="pin-sheet"><div class="pin-handle"></div><div class="pin-title">Espace responsables</div><div class="pin-sub">Entrez votre code PIN</div><div class="pin-dots" id="pindots">${[0,1,2,3].map(i=>`<div class="pin-dot" id="pd${i}"></div>`).join('')}</div><div class="pin-grid">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>`<button class="pin-key" onclick="pinKey('${k}')">${k}</button>`).join('')}</div><div class="pin-err" id="pinerr"></div></div></div>`;
-    return;
-  }
+  const ub=`<div class="user-bar">${user.photoURL?`<img class="user-ava" src="${user.photoURL}"/>`:`<div class="user-ava-ph">${ini(user.displayName||user.email)}</div>`}<div style="flex:1;"><div class="user-name">${user.displayName||'Admin'}</div><div class="user-email">${user.email}</div></div><button class="so-btn" onclick="sOut()">Déconnexion</button></div>`;
+  const tabs=`<div class="stabs"><div class="stab${atab==='events'?' on':''}" onclick="sTab('events')">Événements</div><div class="stab${atab==='teams'?' on':''}" onclick="sTab('teams')">Équipes</div></div>`;
 
-  const tabs=`<div class="stabs"><div class="stab${adminTab==='events'?' on':''}" onclick="setTab('events')">Événements</div><div class="stab${adminTab==='teams'?' on':''}" onclick="setTab('teams')">Équipes</div></div>`;
+  if(mt==='event'){const e=eeid?EV.find(x=>x.id===eeid):null;s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${e?'Modifier':'Nouvel événement'}</div><div class="fg"><div class="flabel">Titre</div><input class="finput" id="ft" value="${e?e.title:''}" placeholder="ex: Culte du dimanche"/></div><div class="frow"><div class="fg"><div class="flabel">Date</div><input class="finput" type="date" id="fd" value="${e?e.date:td()}"/></div><div class="fg"><div class="flabel">Heure</div><input class="finput" type="time" id="fh" value="${e?e.time:'10:00'}"/></div></div><div class="fg"><div class="flabel">Équipes</div><div class="chips">${Object.entries(BL).map(([k,v])=>`<div class="chip${st.includes(k)?' on':''}" onclick="tC('${k}')">${v}</div>`).join('')}</div></div><div class="fg"><div class="flabel">Récurrence</div><input class="finput" id="fr" value="${e?e.recur:''}" placeholder="ex: Chaque dimanche"/></div><div class="fg"><div class="flabel">Notes</div><input class="finput" id="fn" value="${e?e.notes:''}" placeholder="Lieu, détails…"/></div><div class="btnrow"><button class="bcanc" onclick="cM()">Annuler</button>${e?`<button class="bdel" onclick="dE('${e.id}')">Supprimer</button>`:''}<button class="bsave" onclick="svE()">Enregistrer</button></div></div></div>`;return;}
+  if(mt==='team'){const t=etid?TM.find(x=>x.id===etid):null;s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${t?'Modifier équipe':'Nouvelle équipe'}</div><div class="fg"><div class="flabel">Nom</div><input class="finput" id="tn" value="${t?t.name:''}" placeholder="ex: Équipe accueil"/></div><div class="frow"><div class="fg"><div class="flabel">Icône</div><input class="finput" id="ti" value="${t?t.icon:'👥'}"/></div><div class="fg"><div class="flabel">Couleur</div><select class="finput" id="tb">${TC.map(c=>`<option value="${c}"${t&&t.iconBg===c?' selected':''}>${c}</option>`).join('')}</select></div></div><div class="btnrow"><button class="bcanc" onclick="cM()">Annuler</button>${t?`<button class="bdel" onclick="dT('${t.id}')">Supprimer</button>`:''}<button class="bsave" onclick="svT()">Enregistrer</button></div></div></div>`;return;}
+  if(mt==='member'||mt==='addmember'){const t=TM.find(x=>x.id===etid),m=emid&&t?(t.members||[]).find(x=>x.id===emid):null;s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${m?'Modifier membre':'Ajouter un membre'}</div><div class="fg"><div class="flabel">Prénom / Nom</div><input class="finput" id="mn" value="${m?m.name:''}" placeholder="ex: Jean Dupont"/></div><div class="fg"><div class="flabel">Rôle</div><input class="finput" id="mr" value="${m?m.role:''}" placeholder="ex: Responsable"/></div><div class="fg"><div class="flabel">Couleur avatar</div><div class="chips">${MC.map((c,i)=>`<div class="chip${sci===i?' on':''}" style="${sci===i?`background:${c[0]};color:#fff;border-color:${c[0]}`:''}" onclick="sCo(${i})">${c[0].slice(1,4)}</div>`).join('')}</div></div><div class="btnrow"><button class="bcanc" onclick="cM()">Annuler</button>${m?`<button class="bdel" onclick="dM(${m.id})">Retirer</button>`:''}<button class="bsave" onclick="svM()">Enregistrer</button></div></div></div>`;return;}
 
-  if(modalType==='event'){
-    const e=editEvtId?EVENTS.find(x=>x.id===editEvtId):null;
-    s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${e?'Modifier':'Nouvel événement'}</div>
-    <div class="fg"><div class="flabel">Titre</div><input class="finput" id="ft" value="${e?e.title:''}" placeholder="ex: Culte du dimanche"/></div>
-    <div class="frow"><div class="fg"><div class="flabel">Date</div><input class="finput" type="date" id="fd" value="${e?e.date:today()}"/></div><div class="fg"><div class="flabel">Heure</div><input class="finput" type="time" id="fh" value="${e?e.time:'10:00'}"/></div></div>
-    <div class="fg"><div class="flabel">Équipes</div><div class="chips">${Object.entries(BL).map(([k,v])=>`<div class="chip${selTeams.includes(k)?' on':''}" onclick="togChip('${k}')">${v}</div>`).join('')}</div></div>
-    <div class="fg"><div class="flabel">Récurrence</div><input class="finput" id="fr" value="${e?e.recur:''}" placeholder="ex: Chaque dimanche"/></div>
-    <div class="fg"><div class="flabel">Notes</div><input class="finput" id="fn" value="${e?e.notes:''}" placeholder="Lieu, détails…"/></div>
-    <div class="btnrow"><button class="bcanc" onclick="closeModal()">Annuler</button>${e?`<button class="bdel" onclick="delEvt('${e.id}')">Supprimer</button>`:''}<button class="bsave" onclick="saveEvt()">Enregistrer</button></div>
-    </div></div>`;
-    return;
-  }
-
-  if(modalType==='team'){
-    const t=editTeamId?TEAMS.find(x=>x.id===editTeamId):null;
-    s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${t?'Modifier l\'équipe':'Nouvelle équipe'}</div>
-    <div class="fg"><div class="flabel">Nom</div><input class="finput" id="tname" value="${t?t.name:''}" placeholder="ex: Équipe accueil"/></div>
-    <div class="frow"><div class="fg"><div class="flabel">Icône</div><input class="finput" id="ticon" value="${t?t.icon:'👥'}"/></div><div class="fg"><div class="flabel">Couleur</div><select class="finput" id="tbg">${TCOLS.map(c=>`<option value="${c}"${t&&t.iconBg===c?' selected':''}>${c}</option>`).join('')}</select></div></div>
-    <div class="btnrow"><button class="bcanc" onclick="closeModal()">Annuler</button>${t?`<button class="bdel" onclick="delTeam('${t.id}')">Supprimer</button>`:''}<button class="bsave" onclick="saveTeam()">Enregistrer</button></div>
-    </div></div>`;
-    return;
-  }
-
-  if(modalType==='member'||modalType==='addmember'){
-    const t=TEAMS.find(x=>x.id===editTeamId);
-    const m=editMemberId&&t?(t.members||[]).find(x=>x.id===editMemberId):null;
-    s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${m?'Modifier le membre':'Ajouter un membre'}</div>
-    <div class="fg"><div class="flabel">Prénom / Nom</div><input class="finput" id="mname" value="${m?m.name:''}" placeholder="ex: Jean Dupont"/></div>
-    <div class="fg"><div class="flabel">Rôle</div><input class="finput" id="mrole" value="${m?m.role:''}" placeholder="ex: Responsable"/></div>
-    <div class="fg"><div class="flabel">Couleur avatar</div><div class="chips">${MCOLS.map((c,i)=>`<div class="chip${selColorIdx===i?' on':''}" style="${selColorIdx===i?`background:${c[0]};color:#fff;border-color:${c[0]}`:''}" onclick="selCol(${i})">${c[0].slice(1,4)}</div>`).join('')}</div></div>
-    <div class="btnrow"><button class="bcanc" onclick="closeModal()">Annuler</button>${m?`<button class="bdel" onclick="delMember(${m.id})">Retirer</button>`:''}<button class="bsave" onclick="saveMember()">Enregistrer</button></div>
-    </div></div>`;
-    return;
-  }
-
-  let h=tabs;
-  if(adminTab==='events'){
-    h+='<div class="sh">Événements ('+EVENTS.length+')</div>';
-    EVENTS.slice().sort((a,b)=>a.date.localeCompare(b.date)).forEach(e=>{
-      h+=`<div class="ali"><div class="adot" style="background:${e.color};"></div><div style="flex:1;"><div class="atitle">${e.title}</div><div class="adate">${fmtD(e.date)} · ${fmtT(e.time)}</div></div><button class="edit-btn" onclick="openEditEvt('${e.id}')">✏️</button><button class="del-btn" onclick="delEvt('${e.id}')">🗑</button></div>`;
-    });
-    h+=`<button class="fab" onclick="openNewEvt()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4v14M4 11h14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>`;
-  }
-  if(adminTab==='teams'){
-    h+='<div class="sh">Équipes ('+TEAMS.length+')</div>';
-    TEAMS.slice().sort((a,b)=>(a.order||0)-(b.order||0)).forEach(t=>{
-      h+=`<div class="tcard" style="margin:0 12px 8px;"><div class="thead"><div class="ticon" style="background:${t.iconBg};">${t.icon}</div><div style="flex:1;"><div class="tname">${t.name}</div><div class="tsub">${(t.members||[]).length} membre${(t.members||[]).length>1?'s':''}</div></div><button class="edit-btn" onclick="openEditTeam('${t.id}')">✏️</button><button class="del-btn" onclick="delTeam('${t.id}')">🗑</button></div>
-      <div class="mlist">
-        ${(t.members||[]).map(m=>`<div class="merow"><div class="ava" style="background:${m.bg};color:${m.tc};width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;">${m.ini||ini(m.name)}</div><span style="flex:1;font-size:13px;color:var(--text);">${m.name}</span><span style="font-size:11px;color:var(--text3);">${m.role}</span><button class="edit-btn" onclick="openEditMember('${t.id}',${m.id})">✏️</button><button class="del-btn" onclick="delMember(${m.id},'${t.id}')">🗑</button></div>`).join('')}
-        <div style="padding:8px 14px;"><button style="font-size:12px;color:var(--navy);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;" onclick="openAddMember('${t.id}')">+ Ajouter un membre</button></div>
-      </div></div>`;
-    });
-    h+=`<button class="fab" onclick="openNewTeam()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4v14M4 11h14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>`;
-  }
-  h+=`<button class="logout-btn" onclick="logout()">Déconnexion session admin</button>`;
+  let h=ub+tabs;
+  if(atab==='events'){h+=`<div class="sh">Événements (${EV.length})</div>`;EV.slice().sort((a,b)=>a.date.localeCompare(b.date)).forEach(e=>{h+=`<div class="ali"><div class="adot" style="background:${e.color};"></div><div style="flex:1;"><div class="atitle">${e.title}</div><div class="adate">${fmtD(e.date)} · ${fmtT(e.time)}</div></div><button class="edit-btn" onclick="oEE('${e.id}')">✏️</button><button class="del-btn" onclick="dE('${e.id}')">🗑</button></div>`;});h+=`<button class="fab" onclick="oNE()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4v14M4 11h14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>`;}
+  if(atab==='teams'){h+=`<div class="sh">Équipes (${TM.length})</div>`;TM.slice().sort((a,b)=>(a.order||0)-(b.order||0)).forEach(t=>{h+=`<div class="tcard" style="margin:0 12px 8px;"><div class="thead"><div class="ticon" style="background:${t.iconBg};">${t.icon}</div><div style="flex:1;"><div class="tname">${t.name}</div><div class="tsub">${(t.members||[]).length} membre${(t.members||[]).length>1?'s':''}</div></div><button class="edit-btn" onclick="oET('${t.id}')">✏️</button><button class="del-btn" onclick="dT('${t.id}')">🗑</button></div><div class="mlist">${(t.members||[]).map(m=>`<div class="merow"><div class="ava" style="background:${m.bg};color:${m.tc};width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;">${m.ini||ini(m.name)}</div><span style="flex:1;font-size:13px;color:var(--text);">${m.name}</span><span style="font-size:11px;color:var(--text3);">${m.role}</span><button class="edit-btn" onclick="oEM('${t.id}',${m.id})">✏️</button><button class="del-btn" onclick="dM(${m.id},'${t.id}')">🗑</button></div>`).join('')}<div style="padding:8px 14px;"><button style="font-size:12px;color:var(--navy);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;" onclick="oAM('${t.id}')">+ Ajouter un membre</button></div></div></div>`;});h+=`<button class="fab" onclick="oNT()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4v14M4 11h14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>`;}
   s.innerHTML=h;
 }
 
-// ── PIN ──
-function pinKey(k){
-  if(k==='')return;
-  if(k==='⌫'){pinEntry=pinEntry.slice(0,-1);updDots();return;}
-  if(pinEntry.length>=4)return;
-  pinEntry+=k;updDots();
-  if(pinEntry.length===4){
-    if(pinEntry===PIN){adminUnlocked=true;setTimeout(()=>rAdmin(document.getElementById('screen')),200);}
-    else{document.getElementById('pinerr').textContent='Code incorrect.';setTimeout(()=>{pinEntry='';updDots();document.getElementById('pinerr').textContent='';},1000);}
-  }
-}
-function updDots(){for(let i=0;i<4;i++){const d=document.getElementById('pd'+i);if(d)d.className='pin-dot'+(i<pinEntry.length?' filled':'');}}
-function logout(){adminUnlocked=false;pinEntry='';go('accueil');}
-function setTab(t){adminTab=t;rAdmin(document.getElementById('screen'));}
-function closeModal(){modalType='';editEvtId=null;editTeamId=null;editMemberId=null;selTeams=[];rAdmin(document.getElementById('screen'));}
+async function sIn(){try{await signInWithPopup(auth,gp);}catch(e){const el=document.getElementById('aerr');if(el)el.textContent='Erreur de connexion. Réessayez.';}}
+async function sOut(){await signOut(auth);go('accueil');}
+window.sIn=sIn;window.sOut=sOut;
 
-// ── EVENTS CRUD ──
-function openNewEvt(){modalType='event';editEvtId=null;selTeams=[];rAdmin(document.getElementById('screen'));}
-function openEditEvt(id){modalType='event';editEvtId=id;const e=EVENTS.find(x=>x.id===id);selTeams=e?[...(e.teams||[])]:[];rAdmin(document.getElementById('screen'));}
-function togChip(k){const i=selTeams.indexOf(k);if(i>=0)selTeams.splice(i,1);else selTeams.push(k);rAdmin(document.getElementById('screen'));}
+function sTab(t){atab=t;rAd(document.getElementById('screen'));}
+function cM(){mt='';eeid=null;etid=null;emid=null;st=[];rAd(document.getElementById('screen'));}
+window.sTab=sTab;window.cM=cM;
 
-async function saveEvt(){
-  const title=(document.getElementById('ft')?.value||'').trim();
-  if(!title){alert('Merci de saisir un titre.');return;}
-  const date=document.getElementById('fd')?.value||today();
-  const time=document.getElementById('fh')?.value||'10:00';
-  const recur=(document.getElementById('fr')?.value||'').trim();
-  const notes=(document.getElementById('fn')?.value||'').trim();
-  const cols=['#1A3A5C','#185FA5','#854F0B','#0F6E56','#533AB7','#D85A30'];
-  const data={title,date,time,recur,notes,teams:selTeams.length?selTeams:['all']};
-  if(editEvtId){
-    await updateDoc(doc(db,'events',editEvtId),data);
-  } else {
-    data.color=cols[EVENTS.length%cols.length];
-    await addDoc(collection(db,'events'),data);
-  }
-  closeModal();
-}
+function oNE(){mt='event';eeid=null;st=[];rAd(document.getElementById('screen'));}
+function oEE(id){mt='event';eeid=id;const e=EV.find(x=>x.id===id);st=e?[...(e.teams||[])]:[];rAd(document.getElementById('screen'));}
+function tC(k){const i=st.indexOf(k);if(i>=0)st.splice(i,1);else st.push(k);rAd(document.getElementById('screen'));}
+async function svE(){const title=(document.getElementById('ft')?.value||'').trim();if(!title){alert('Titre requis');return;}const date=document.getElementById('fd')?.value||td(),time=document.getElementById('fh')?.value||'10:00',recur=(document.getElementById('fr')?.value||'').trim(),notes=(document.getElementById('fn')?.value||'').trim(),cols=['#1A3A5C','#185FA5','#854F0B','#0F6E56','#533AB7','#D85A30'],data={title,date,time,recur,notes,teams:st.length?st:['all']};if(eeid){await updateDoc(doc(db,'events',eeid),data);}else{data.color=cols[EV.length%cols.length];await addDoc(collection(db,'events'),data);}cM();}
+async function dE(id){if(!confirm('Supprimer ?'))return;await deleteDoc(doc(db,'events',id));mt='';eeid=null;rAd(document.getElementById('screen'));}
+window.oNE=oNE;window.oEE=oEE;window.tC=tC;window.svE=svE;window.dE=dE;
 
-async function delEvt(id){
-  if(!confirm('Supprimer cet événement ?'))return;
-  await deleteDoc(doc(db,'events',id));
-  modalType='';editEvtId=null;rAdmin(document.getElementById('screen'));
-}
+function oNT(){mt='team';etid=null;rAd(document.getElementById('screen'));}
+function oET(id){mt='team';etid=id;rAd(document.getElementById('screen'));}
+async function svT(){const name=(document.getElementById('tn')?.value||'').trim();if(!name){alert('Nom requis');return;}const icon=document.getElementById('ti')?.value||'👥',iconBg=document.getElementById('tb')?.value||TC[0];if(etid){await updateDoc(doc(db,'teams',etid),{name,icon,iconBg});}else{await addDoc(collection(db,'teams'),{name,icon,iconBg,order:TM.length,members:[]});}cM();}
+async function dT(id){if(!confirm('Supprimer cette équipe ?'))return;await deleteDoc(doc(db,'teams',id));mt='';etid=null;rAd(document.getElementById('screen'));}
+window.oNT=oNT;window.oET=oET;window.svT=svT;window.dT=dT;
 
-// ── TEAMS CRUD ──
-function openNewTeam(){modalType='team';editTeamId=null;rAdmin(document.getElementById('screen'));}
-function openEditTeam(id){modalType='team';editTeamId=id;rAdmin(document.getElementById('screen'));}
+function oAM(tid){mt='addmember';etid=tid;emid=null;sci=0;rAd(document.getElementById('screen'));}
+function oEM(tid,mid){mt='member';etid=tid;emid=mid;const t=TM.find(x=>x.id===tid),m=(t?.members||[]).find(x=>x.id===mid);sci=m?Math.max(0,MC.findIndex(c=>c[0]===m.bg)):0;rAd(document.getElementById('screen'));}
+function sCo(i){sci=i;rAd(document.getElementById('screen'));}
+async function svM(){const name=(document.getElementById('mn')?.value||'').trim();if(!name){alert('Prénom requis');return;}const role=(document.getElementById('mr')?.value||'').trim()||'Membre',[bg,tc]=MC[sci]||MC[0],t=TM.find(x=>x.id===etid);if(!t)return;const members=[...(t.members||[])];if(emid){const idx=members.findIndex(x=>x.id===emid);if(idx>=0)members[idx]={...members[idx],name,role,bg,tc,ini:ini(name)};}else{members.push({id:Date.now(),name,role,ini:ini(name),bg,tc});}await updateDoc(doc(db,'teams',etid),{members});cM();}
+async function dM(mid,tid){if(!confirm('Retirer ce membre ?'))return;const teamId=tid||etid,t=TM.find(x=>x.id===teamId);if(!t)return;await updateDoc(doc(db,'teams',teamId),{members:(t.members||[]).filter(m=>m.id!==mid)});mt='';rAd(document.getElementById('screen'));}
+window.oAM=oAM;window.oEM=oEM;window.sCo=sCo;window.svM=svM;window.dM=dM;
 
-async function saveTeam(){
-  const name=(document.getElementById('tname')?.value||'').trim();
-  if(!name){alert('Merci de saisir un nom.');return;}
-  const icon=document.getElementById('ticon')?.value||'👥';
-  const iconBg=document.getElementById('tbg')?.value||TCOLS[0];
-  if(editTeamId){
-    await updateDoc(doc(db,'teams',editTeamId),{name,icon,iconBg});
-  } else {
-    await addDoc(collection(db,'teams'),{name,icon,iconBg,order:TEAMS.length,members:[]});
-  }
-  closeModal();
-}
-
-async function delTeam(id){
-  if(!confirm('Supprimer cette équipe et tous ses membres ?'))return;
-  await deleteDoc(doc(db,'teams',id));
-  modalType='';editTeamId=null;rAdmin(document.getElementById('screen'));
-}
-
-// ── MEMBERS CRUD ──
-function openAddMember(tid){modalType='addmember';editTeamId=tid;editMemberId=null;selColorIdx=0;rAdmin(document.getElementById('screen'));}
-function openEditMember(tid,mid){modalType='member';editTeamId=tid;editMemberId=mid;const t=TEAMS.find(x=>x.id===tid);const m=(t?.members||[]).find(x=>x.id===mid);selColorIdx=m?MCOLS.findIndex(c=>c[0]===m.bg):0;if(selColorIdx<0)selColorIdx=0;rAdmin(document.getElementById('screen'));}
-function selCol(i){selColorIdx=i;rAdmin(document.getElementById('screen'));}
-
-async function saveMember(){
-  const name=(document.getElementById('mname')?.value||'').trim();
-  if(!name){alert('Merci de saisir un prénom.');return;}
-  const role=(document.getElementById('mrole')?.value||'').trim()||'Membre';
-  const [bg,tc]=MCOLS[selColorIdx]||MCOLS[0];
-  const t=TEAMS.find(x=>x.id===editTeamId);
-  if(!t)return;
-  const members=[...(t.members||[])];
-  if(editMemberId){
-    const idx=members.findIndex(x=>x.id===editMemberId);
-    if(idx>=0)members[idx]={...members[idx],name,role,bg,tc,ini:ini(name)};
-  } else {
-    members.push({id:Date.now(),name,role,ini:ini(name),bg,tc});
-  }
-  await updateDoc(doc(db,'teams',editTeamId),{members});
-  closeModal();
-}
-
-async function delMember(mid,tid){
-  if(!confirm('Retirer ce membre ?'))return;
-  const teamId=tid||editTeamId;
-  const t=TEAMS.find(x=>x.id===teamId);
-  if(!t)return;
-  const members=(t.members||[]).filter(m=>m.id!==mid);
-  await updateDoc(doc(db,'teams',teamId),{members});
-  modalType='';rAdmin(document.getElementById('screen'));
-}
-
-// Expose functions globally
-window.pinKey=pinKey;window.logout=logout;window.setTab=setTab;window.closeModal=closeModal;
-window.openNewEvt=openNewEvt;window.openEditEvt=openEditEvt;window.togChip=togChip;window.saveEvt=saveEvt;window.delEvt=delEvt;
-window.openNewTeam=openNewTeam;window.openEditTeam=openEditTeam;window.saveTeam=saveTeam;window.delTeam=delTeam;
-window.openAddMember=openAddMember;window.openEditMember=openEditMember;window.selCol=selCol;window.saveMember=saveMember;window.delMember=delMember;
-
-if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
+if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
 </script>
 </body>
 </html>
