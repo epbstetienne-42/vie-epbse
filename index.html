@@ -14,18 +14,7 @@
   <link rel="apple-touch-icon" href="icons/icon-192.png"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --navy:#1A3A5C; --navy2:#24507E;
-      --teal:#1D9E75; --teal-l:#E1F5EE;
-      --gold:#D4A017; --gold-l:#FDF3DC;
-      --coral:#D85A30; --coral-l:#FAECE7;
-      --purple:#534AB7; --purple-l:#EEEDFE;
-      --bg:#F4F6F9; --surface:#FFFFFF;
-      --text:#0F1923; --text2:#4A5568; --text3:#8A96A3;
-      --border:rgba(0,0,0,0.08); --border2:rgba(0,0,0,0.14);
-      --r:14px; --rs:8px;
-      --safe-bottom:env(safe-area-inset-bottom,0px);
-    }
+    :root{--navy:#1A3A5C;--teal:#1D9E75;--teal-l:#E1F5EE;--gold-l:#FDF3DC;--coral-l:#FAECE7;--purple-l:#EEEDFE;--bg:#F4F6F9;--surface:#FFFFFF;--text:#0F1923;--text2:#4A5568;--text3:#8A96A3;--border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);--r:14px;--rs:8px;--safe-bottom:env(safe-area-inset-bottom,0px);}
     *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
     html,body{height:100%;overflow:hidden;}
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;max-width:430px;margin:0 auto;}
@@ -78,7 +67,6 @@
     .ava{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
     .mname{font-size:13px;font-weight:500;color:var(--text);flex:1;}
     .rpill{font-size:10px;font-weight:500;padding:3px 8px;border-radius:20px;}
-    /* PIN overlay */
     .pin-bg{min-height:500px;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.5);}
     .pin-sheet{background:var(--surface);border-radius:22px 22px 0 0;padding:24px 20px 32px;width:100%;text-align:center;}
     .pin-handle{width:36px;height:4px;border-radius:2px;background:var(--border2);margin:0 auto 20px;}
@@ -88,18 +76,18 @@
     .pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--border2);background:var(--bg);}
     .pin-dot.filled{background:var(--navy);border-color:var(--navy);}
     .pin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:260px;margin:0 auto;}
-    .pin-key{padding:14px;border-radius:var(--rs);background:var(--bg);border:0.5px solid var(--border2);font-size:18px;font-weight:600;color:var(--text);cursor:pointer;transition:background .1s;}
+    .pin-key{padding:14px;border-radius:var(--rs);background:var(--bg);border:0.5px solid var(--border2);font-size:18px;font-weight:600;color:var(--text);cursor:pointer;transition:background .1s;font-family:'DM Sans',sans-serif;}
     .pin-key:active{background:var(--border2);}
     .pin-err{font-size:12px;color:#E24B4A;margin-top:12px;min-height:18px;}
-    /* Admin screens */
-    .ali{background:var(--surface);margin:0 12px 6px;border-radius:var(--rs);border:0.5px solid var(--border);padding:11px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;}
-    .ali:active{background:var(--bg);}
+    .ali{background:var(--surface);margin:0 12px 6px;border-radius:var(--rs);border:0.5px solid var(--border);padding:11px 14px;display:flex;align-items:center;gap:10px;}
     .adot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
     .atitle{font-size:13px;font-weight:500;color:var(--text);flex:1;}
     .adate{font-size:11px;color:var(--text3);}
+    .del-btn{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 6px;color:#E24B4A;flex-shrink:0;}
+    .edit-btn{background:none;border:none;cursor:pointer;font-size:14px;padding:4px 6px;color:var(--text3);flex-shrink:0;}
     .fab{width:52px;height:52px;border-radius:50%;background:var(--navy);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;margin:4px 12px 4px auto;transition:transform .1s;}
     .fab:active{transform:scale(.93);}
-    .modal-bg{min-height:520px;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.45);}
+    .modal-bg{min-height:540px;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.45);}
     .msheet{background:var(--surface);border-radius:22px 22px 0 0;padding:20px 18px 28px;width:100%;}
     .mhandle{width:36px;height:4px;border-radius:2px;background:var(--border2);margin:0 auto 16px;}
     .mtitle{font-size:16px;font-weight:600;color:var(--text);margin-bottom:16px;}
@@ -115,13 +103,18 @@
     .bsave{flex:1;padding:12px;border-radius:var(--rs);background:var(--navy);color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
     .bsave:active{opacity:.8;}
     .bcanc{padding:12px 16px;border-radius:var(--rs);background:var(--bg);color:var(--text2);font-size:14px;border:1px solid var(--border2);cursor:pointer;font-family:'DM Sans',sans-serif;}
+    .bdel{padding:12px 16px;border-radius:var(--rs);background:#FCEBEB;color:#A32D2D;font-size:14px;border:1px solid #F09595;cursor:pointer;font-family:'DM Sans',sans-serif;}
     .logout-btn{display:block;margin:8px 12px 0;padding:10px;border-radius:var(--rs);background:var(--bg);border:0.5px solid var(--border2);color:var(--text3);font-size:12px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif;}
-    .logout-btn:active{background:var(--border);}
+    .section-tabs{display:flex;gap:8px;padding:8px 12px 0;overflow-x:auto;}
+    .stab{font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:0.5px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;white-space:nowrap;transition:all .12s;}
+    .stab.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+    .member-edit-row{display:flex;align-items:center;gap:8px;padding:8px 14px;border-bottom:0.5px solid var(--border);}
+    .member-edit-row:last-child{border-bottom:none;}
   </style>
 </head>
 <body>
 <div id="header">
-  <div id="hg">epbse.org</div>
+  <div id="hg">Église Protestante Baptiste</div>
   <div id="ht">Vie EPBSE</div>
   <div id="hs">Chargement…</div>
 </div>
@@ -147,9 +140,11 @@
 <script>
 const BS={son:{bg:'#EEEDFE',c:'#3C3489'},louange:{bg:'#FDF3DC',c:'#854F0B'},menage:{bg:'#E1F5EE',c:'#085041'},ed:{bg:'#E6F1FB',c:'#0C447C'},all:{bg:'#F1EFE8',c:'#444441'},conseil:{bg:'#FAECE7',c:'#712B13'}};
 const BL={son:'Son',louange:'Louange',menage:'Ménage',ed:'Éc. dimanche',all:'Tous',conseil:'Conseil'};
-const PIN_CODE = '4200'; // <- À CHANGER avant de publier
+const TEAM_COLORS=['#EEEDFE','#FDF3DC','#E1F5EE','#E6F1FB','#FAECE7','#F1EFE8'];
+const MEMBER_COLORS=[['#534AB7','#EEEDFE'],['#EF9F27','#FDF3DC'],['#1D9E75','#E1F5EE'],['#378ADD','#E6F1FB'],['#D85A30','#FAECE7'],['#888780','#F1EFE8']];
+const PIN_CODE='4200';
 
-let EVENTS = JSON.parse(localStorage.getItem('epbse_events')||'null')||[
+function defEvents(){return[
   {id:1,title:'Culte du dimanche',date:'2026-04-20',time:'10:00',color:'#1A3A5C',teams:['son','louange','all'],recur:'Chaque dimanche',notes:'Thème : La grâce renouvelée'},
   {id:2,title:'École du dimanche',date:'2026-04-20',time:'10:00',color:'#185FA5',teams:['ed'],recur:'Chaque dimanche',notes:'Groupe 6–12 ans'},
   {id:3,title:'Répétition louange',date:'2026-04-18',time:'19:00',color:'#854F0B',teams:['louange','son'],recur:'Vendredi soir',notes:'Salle principale'},
@@ -157,22 +152,32 @@ let EVENTS = JSON.parse(localStorage.getItem('epbse_events')||'null')||[
   {id:5,title:"Conseil d'Église",date:'2026-04-22',time:'20:00',color:'#533AB7',teams:['conseil'],recur:'',notes:'ODJ : budget T2 + AG'},
   {id:6,title:'Repas agape',date:'2026-04-27',time:'12:30',color:'#D85A30',teams:['menage','all'],recur:'',notes:'Prévoir ~80 personnes'},
   {id:7,title:'Culte du dimanche',date:'2026-04-27',time:'10:00',color:'#1A3A5C',teams:['son','louange','all'],recur:'Chaque dimanche',notes:''},
-  {id:8,title:'Culte du dimanche',date:'2026-05-04',time:'10:00',color:'#1A3A5C',teams:['son','louange','all'],recur:'Chaque dimanche',notes:''},
-];
-const TEAMS=[
-  {id:'son',name:'Équipe sonorisation',icon:'🎚',iconBg:'#EEEDFE',members:[{name:'Victor',role:'Resp. son',ini:'VI',bg:'#534AB7',tc:'#EEEDFE'},{name:'Etienne',role:'Technicien',ini:'ET',bg:'#7F77DD',tc:'#EEEDFE'},{name:'Marc',role:'Câblage',ini:'MA',bg:'#AFA9EC',tc:'#3C3489'}]},
-  {id:'louange',name:'Équipe louange',icon:'🎵',iconBg:'#FDF3DC',members:[{name:'Sarah',role:'Resp. louange',ini:'SA',bg:'#EF9F27',tc:'#633806'},{name:'David',role:'Guitare',ini:'DA',bg:'#FAC775',tc:'#633806'},{name:'Ruth',role:'Chant',ini:'RU',bg:'#EF9F27',tc:'#633806'},{name:'Joël',role:'Clavier',ini:'JO',bg:'#FAC775',tc:'#633806'}]},
-  {id:'menage',name:'Équipe ménage',icon:'🧹',iconBg:'#E1F5EE',members:[{name:'Marie',role:'Coordinatrice',ini:'MI',bg:'#1D9E75',tc:'#E1F5EE'},{name:'Paul',role:'Bénévole',ini:'PA',bg:'#5DCAA5',tc:'#085041'},{name:'Anne',role:'Bénévole',ini:'AN',bg:'#9FE1CB',tc:'#085041'}]},
-  {id:'ed',name:'École du dimanche',icon:'📖',iconBg:'#E6F1FB',members:[{name:'Esther',role:'Responsable',ini:'ES',bg:'#378ADD',tc:'#E6F1FB'},{name:'Nathan',role:'Moniteur',ini:'NA',bg:'#85B7EB',tc:'#0C447C'}]},
-];
+];}
 
-let cur='accueil', adminUnlocked=false, pinEntry='', modalOpen=false, selTeams=[];
+function defTeams(){return[
+  {id:'son',name:'Équipe sonorisation',icon:'🎚',iconBg:'#EEEDFE',members:[{id:1,name:'Victor',role:'Resp. son',ini:'VI',bg:'#534AB7',tc:'#EEEDFE'},{id:2,name:'Etienne',role:'Technicien',ini:'ET',bg:'#7F77DD',tc:'#EEEDFE'},{id:3,name:'Marc',role:'Câblage',ini:'MA',bg:'#AFA9EC',tc:'#3C3489'}]},
+  {id:'louange',name:'Équipe louange',icon:'🎵',iconBg:'#FDF3DC',members:[{id:4,name:'Sarah',role:'Resp. louange',ini:'SA',bg:'#EF9F27',tc:'#FDF3DC'},{id:5,name:'David',role:'Guitare',ini:'DA',bg:'#FAC775',tc:'#633806'},{id:6,name:'Ruth',role:'Chant',ini:'RU',bg:'#EF9F27',tc:'#633806'},{id:7,name:'Joël',role:'Clavier',ini:'JO',bg:'#FAC775',tc:'#633806'}]},
+  {id:'menage',name:'Équipe ménage',icon:'🧹',iconBg:'#E1F5EE',members:[{id:8,name:'Marie',role:'Coordinatrice',ini:'MI',bg:'#1D9E75',tc:'#E1F5EE'},{id:9,name:'Paul',role:'Bénévole',ini:'PA',bg:'#5DCAA5',tc:'#085041'},{id:10,name:'Anne',role:'Bénévole',ini:'AN',bg:'#9FE1CB',tc:'#085041'}]},
+  {id:'ed',name:'École du dimanche',icon:'📖',iconBg:'#E6F1FB',members:[{id:11,name:'Esther',role:'Responsable',ini:'ES',bg:'#378ADD',tc:'#E6F1FB'},{id:12,name:'Nathan',role:'Moniteur',ini:'NA',bg:'#85B7EB',tc:'#0C447C'}]},
+];}
 
-function save(){try{localStorage.setItem('epbse_events',JSON.stringify(EVENTS));}catch(e){}}
+let EVENTS=JSON.parse(localStorage.getItem('epbse_events')||'null')||defEvents();
+let TEAMS=JSON.parse(localStorage.getItem('epbse_teams')||'null')||defTeams();
+
+let cur='accueil',adminUnlocked=false,pinEntry='',modalOpen=false,selTeams=[];
+let adminTab='events';
+let editEvtId=null, editTeamId=null, editMemberId=null;
+let modalType=''; // 'event','team','member','addmember'
+
+function saveAll(){
+  try{localStorage.setItem('epbse_events',JSON.stringify(EVENTS));}catch(e){}
+  try{localStorage.setItem('epbse_teams',JSON.stringify(TEAMS));}catch(e){}
+}
 function fmtD(d){return new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});}
 function fmtT(t){return t.replace(':','h');}
 function today(){return new Date().toISOString().split('T')[0];}
-function bdg(t){const s=BS[t]||{bg:'#eee',c:'#555'};return `<span class="badge" style="background:${s.bg};color:${s.c};">${BL[t]||t}</span>`;}
+function ini(name){return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);}
+function bdg(t){const s=BS[t]||{bg:'#eee',c:'#555'};return`<span class="badge" style="background:${s.bg};color:${s.c};">${BL[t]||t}</span>`;}
 
 function go(s){
   cur=s;
@@ -180,7 +185,7 @@ function go(s){
     const on=el.dataset.s===s;
     el.classList.toggle('active',on);
     el.querySelector('.nl').style.color=on?'var(--navy)':'';
-    const d=el.querySelector('.ndot'); if(d)d.remove();
+    const d=el.querySelector('.ndot');if(d)d.remove();
     if(on){const nd=document.createElement('div');nd.className='ndot';el.appendChild(nd);}
   });
   render();
@@ -199,7 +204,7 @@ function rAccueil(s){
   document.getElementById('ht').textContent='Vie EPBSE';
   const td=today();
   const up=EVENTS.filter(e=>e.date>=td).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time));
-  const sw=up.filter(e=>{const diff=(new Date(e.date+'T12:00:00')-new Date())/86400000;return diff<=7;});
+  const sw=up.filter(e=>(new Date(e.date+'T12:00:00')-new Date())/86400000<=7);
   document.getElementById('hs').textContent=`${sw.length} événement${sw.length>1?'s':''} dans les 7 prochains jours`;
   const nxt=up[0];
   let h='';
@@ -242,13 +247,6 @@ function rPlanning(s){
   all.filter(e=>e.date>=td).forEach(e=>{
     h+=`<div class="ecard"><div class="etop"><div class="eacc" style="background:${e.color};"></div><div style="flex:1;"><div class="en">${e.title}</div><div class="ed">${fmtD(e.date)} · ${fmtT(e.time)}</div></div></div><div class="brow">${e.teams.map(t=>bdg(t)).join('')}</div></div>`;
   });
-  const past=all.filter(e=>e.date<td);
-  if(past.length){
-    h+='<div class="sh">Passés</div>';
-    past.slice().reverse().forEach(e=>{
-      h+=`<div class="ecard" style="opacity:.45;"><div class="etop"><div class="eacc" style="background:${e.color};"></div><div><div class="en">${e.title}</div><div class="ed">${fmtD(e.date)}</div></div></div></div>`;
-    });
-  }
   s.innerHTML=h;
 }
 
@@ -258,80 +256,109 @@ function rEquipes(s){
   document.getElementById('hs').textContent=`${TEAMS.length} équipes · ${TEAMS.reduce((a,t)=>a+t.members.length,0)} membres`;
   let h='';
   TEAMS.forEach(t=>{
-    h+=`<div class="sh">${t.name}</div><div class="tcard"><div class="thead"><div class="ticon" style="background:${t.iconBg};">${t.icon}</div><div><div class="tname">${t.name}</div><div class="tsub">${t.members.length} membre${t.members.length>1?'s':''}</div></div></div><div class="mlist">${t.members.map(m=>`<div class="mrow"><div class="ava" style="background:${m.bg};color:${m.tc};">${m.ini}</div><span class="mname">${m.name}</span><span class="rpill" style="background:${t.iconBg};color:${m.bg};">${m.role}</span></div>`).join('')}</div></div>`;
+    h+=`<div class="sh">${t.name}</div><div class="tcard"><div class="thead"><div class="ticon" style="background:${t.iconBg};">${t.icon}</div><div><div class="tname">${t.name}</div><div class="tsub">${t.members.length} membre${t.members.length>1?'s':''}</div></div></div><div class="mlist">${t.members.map(m=>`<div class="mrow"><div class="ava" style="background:${m.bg};color:${m.tc};">${m.ini||ini(m.name)}</div><span class="mname">${m.name}</span><span class="rpill" style="background:${t.iconBg};color:${m.bg};">${m.role}</span></div>`).join('')}</div></div>`;
   });
   s.innerHTML=h;
 }
 
 function rAdmin(s){
-  document.getElementById('hg').textContent='Accès admin';
+  document.getElementById('hg').textContent='Gestion';
   document.getElementById('ht').textContent='Administration';
-  document.getElementById('hs').textContent=adminUnlocked?'Session active — responsables':'Réservé aux responsables';
+  document.getElementById('hs').textContent=adminUnlocked?'Session active':'Réservé aux responsables';
 
   if(!adminUnlocked){
     pinEntry='';
-    s.innerHTML=`<div class="pin-bg"><div class="pin-sheet">
-      <div class="pin-handle"></div>
-      <div class="pin-title">Espace responsables</div>
-      <div class="pin-sub">Entrez le code PIN pour accéder à l'administration</div>
-      <div class="pin-dots" id="pindots">${[0,1,2,3].map(i=>`<div class="pin-dot" id="pd${i}"></div>`).join('')}</div>
-      <div class="pin-grid">
-        ${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>`<button class="pin-key" onclick="pinKey('${k}')">${k}</button>`).join('')}
-      </div>
-      <div class="pin-err" id="pinerr"></div>
+    s.innerHTML=`<div class="pin-bg"><div class="pin-sheet"><div class="pin-handle"></div><div class="pin-title">Espace responsables</div><div class="pin-sub">Entrez votre code PIN</div><div class="pin-dots" id="pindots">${[0,1,2,3].map(i=>`<div class="pin-dot" id="pd${i}"></div>`).join('')}</div><div class="pin-grid">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>`<button class="pin-key" onclick="pinKey('${k}')">${k}</button>`).join('')}</div><div class="pin-err" id="pinerr"></div></div></div>`;
+    return;
+  }
+
+  // TABS
+  const tabs=`<div class="section-tabs"><div class="stab${adminTab==='events'?' on':''}" onclick="setTab('events')">Événements</div><div class="stab${adminTab==='teams'?' on':''}" onclick="setTab('teams')">Équipes</div></div>`;
+
+  if(modalType==='event'){
+    const e=editEvtId?EVENTS.find(x=>x.id===editEvtId):null;
+    s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${e?'Modifier l\'événement':'Nouvel événement'}</div>
+    <div class="fg"><div class="flabel">Titre</div><input class="finput" id="ft" value="${e?e.title:''}" placeholder="ex: Culte du dimanche"/></div>
+    <div class="frow"><div class="fg"><div class="flabel">Date</div><input class="finput" type="date" id="fd" value="${e?e.date:today()}"/></div><div class="fg"><div class="flabel">Heure</div><input class="finput" type="time" id="fh" value="${e?e.time:'10:00'}"/></div></div>
+    <div class="fg"><div class="flabel">Équipes</div><div class="chips">${Object.entries(BL).map(([k,v])=>`<div class="chip${selTeams.includes(k)?' on':''}" onclick="togChip('${k}')">${v}</div>`).join('')}</div></div>
+    <div class="fg"><div class="flabel">Récurrence</div><input class="finput" id="fr" value="${e?e.recur:''}" placeholder="ex: Chaque dimanche"/></div>
+    <div class="fg"><div class="flabel">Notes</div><input class="finput" id="fn" value="${e?e.notes:''}" placeholder="Lieu, détails…"/></div>
+    <div class="btnrow"><button class="bcanc" onclick="closeModal()">Annuler</button>${e?`<button class="bdel" onclick="delEvt(${e.id})">Supprimer</button>`:''}<button class="bsave" onclick="saveEvt()">Enregistrer</button></div>
     </div></div>`;
     return;
   }
 
-  if(modalOpen){
-    s.innerHTML=`<div class="modal-bg"><div class="msheet">
-      <div class="mhandle"></div>
-      <div class="mtitle">Nouvel événement</div>
-      <div class="fg"><div class="flabel">Titre</div><input class="finput" id="ft" placeholder="ex: Culte du dimanche"/></div>
-      <div class="frow">
-        <div class="fg"><div class="flabel">Date</div><input class="finput" type="date" id="fd" value="${today()}"/></div>
-        <div class="fg"><div class="flabel">Heure</div><input class="finput" type="time" id="fh" value="10:00"/></div>
-      </div>
-      <div class="fg"><div class="flabel">Équipes</div><div class="chips">${Object.entries(BL).map(([k,v])=>`<div class="chip${selTeams.includes(k)?' on':''}" onclick="togChip('${k}')">${v}</div>`).join('')}</div></div>
-      <div class="fg"><div class="flabel">Récurrence</div><input class="finput" id="fr" placeholder="ex: Chaque dimanche"/></div>
-      <div class="fg"><div class="flabel">Notes</div><input class="finput" id="fn" placeholder="Lieu, détails…"/></div>
-      <div class="btnrow"><button class="bcanc" onclick="closeModal()">Annuler</button><button class="bsave" onclick="saveEvt()">Enregistrer</button></div>
+  if(modalType==='team'){
+    const t=editTeamId?TEAMS.find(x=>x.id===editTeamId):null;
+    s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${t?'Modifier l\'équipe':'Nouvelle équipe'}</div>
+    <div class="fg"><div class="flabel">Nom de l'équipe</div><input class="finput" id="tname" value="${t?t.name:''}" placeholder="ex: Équipe accueil"/></div>
+    <div class="frow"><div class="fg"><div class="flabel">Icône (emoji)</div><input class="finput" id="ticon" value="${t?t.icon:'👥'}" placeholder="👥"/></div><div class="fg"><div class="flabel">Couleur fond</div><select class="finput" id="tbg">${TEAM_COLORS.map(c=>`<option value="${c}"${t&&t.iconBg===c?' selected':''}>${c}</option>`).join('')}</select></div></div>
+    <div class="btnrow"><button class="bcanc" onclick="closeModal()">Annuler</button>${t?`<button class="bdel" onclick="delTeam('${t.id}')">Supprimer</button>`:''}<button class="bsave" onclick="saveTeam()">Enregistrer</button></div>
     </div></div>`;
     return;
   }
 
-  const sorted=EVENTS.slice().sort((a,b)=>a.date.localeCompare(b.date));
-  let h=`<div class="sh">Événements (${EVENTS.length})</div>`;
-  sorted.forEach(e=>{
-    h+=`<div class="ali"><div class="adot" style="background:${e.color};"></div><div style="flex:1;"><div class="atitle">${e.title}</div><div class="adate">${fmtD(e.date)} · ${fmtT(e.time)}</div></div><span style="font-size:16px;color:var(--text3);">›</span></div>`;
-  });
-  h+=`<button class="fab" onclick="openModal()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4v14M4 11h14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>`;
+  if(modalType==='member'||modalType==='addmember'){
+    const t=TEAMS.find(x=>x.id===editTeamId);
+    const m=editMemberId&&t?t.members.find(x=>x.id===editMemberId):null;
+    const ci=m?MEMBER_COLORS.findIndex(c=>c[0]===m.bg):0;
+    s.innerHTML=`<div class="modal-bg"><div class="msheet"><div class="mhandle"></div><div class="mtitle">${m?'Modifier le membre':'Ajouter un membre'}</div>
+    <div class="fg"><div class="flabel">Prénom / Nom</div><input class="finput" id="mname" value="${m?m.name:''}" placeholder="ex: Jean Dupont"/></div>
+    <div class="fg"><div class="flabel">Rôle</div><input class="finput" id="mrole" value="${m?m.role:''}" placeholder="ex: Responsable"/></div>
+    <div class="fg"><div class="flabel">Couleur avatar</div><div class="chips">${MEMBER_COLORS.map((c,i)=>`<div class="chip${(m?ci:0)===i?' on':''}" style="${(m?ci:0)===i?`background:${c[0]};color:#fff;border-color:${c[0]}`:''}" onclick="selMemberColor(${i})">${c[0].slice(1,4)}</div>`).join('')}</div></div>
+    <div class="btnrow"><button class="bcanc" onclick="closeModal()">Annuler</button>${m?`<button class="bdel" onclick="delMember(${m.id})">Retirer</button>`:''}<button class="bsave" onclick="saveMember()">Enregistrer</button></div>
+    </div></div>`;
+    return;
+  }
+
+  let h=tabs;
+
+  if(adminTab==='events'){
+    h+='<div class="sh">Événements ('+EVENTS.length+')</div>';
+    EVENTS.slice().sort((a,b)=>a.date.localeCompare(b.date)).forEach(e=>{
+      h+=`<div class="ali"><div class="adot" style="background:${e.color};"></div><div style="flex:1;"><div class="atitle">${e.title}</div><div class="adate">${fmtD(e.date)} · ${fmtT(e.time)}</div></div><button class="edit-btn" onclick="openEditEvt(${e.id})">✏️</button><button class="del-btn" onclick="delEvt(${e.id})">🗑</button></div>`;
+    });
+    h+=`<button class="fab" onclick="openNewEvt()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4v14M4 11h14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>`;
+  }
+
+  if(adminTab==='teams'){
+    h+='<div class="sh">Équipes ('+TEAMS.length+')</div>';
+    TEAMS.forEach(t=>{
+      h+=`<div class="tcard" style="margin:0 12px 8px;"><div class="thead"><div class="ticon" style="background:${t.iconBg};">${t.icon}</div><div style="flex:1;"><div class="tname">${t.name}</div><div class="tsub">${t.members.length} membre${t.members.length>1?'s':''}</div></div><button class="edit-btn" onclick="openEditTeam('${t.id}')">✏️</button><button class="del-btn" onclick="delTeam('${t.id}')">🗑</button></div>
+      <div class="mlist">
+        ${t.members.map(m=>`<div class="member-edit-row"><div class="ava" style="background:${m.bg};color:${m.tc};width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;">${m.ini||ini(m.name)}</div><span style="flex:1;font-size:13px;color:var(--text);">${m.name}</span><span style="font-size:11px;color:var(--text3);">${m.role}</span><button class="edit-btn" onclick="openEditMember('${t.id}',${m.id})">✏️</button><button class="del-btn" onclick="delMember(${m.id},'${t.id}')">🗑</button></div>`).join('')}
+        <div style="padding:8px 14px;"><button style="font-size:12px;color:var(--navy);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;" onclick="openAddMember('${t.id}')">+ Ajouter un membre</button></div>
+      </div></div>`;
+    });
+    h+=`<button class="fab" onclick="openNewTeam()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4v14M4 11h14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>`;
+  }
+
   h+=`<button class="logout-btn" onclick="logout()">Déconnexion session admin</button>`;
   s.innerHTML=h;
 }
 
+// ── PIN ──
 function pinKey(k){
-  if(k==='') return;
-  if(k==='⌫'){ pinEntry=pinEntry.slice(0,-1); updateDots(); return; }
-  if(pinEntry.length>=4) return;
-  pinEntry+=k;
-  updateDots();
+  if(k==='')return;
+  if(k==='⌫'){pinEntry=pinEntry.slice(0,-1);updateDots();return;}
+  if(pinEntry.length>=4)return;
+  pinEntry+=k;updateDots();
   if(pinEntry.length===4){
-    if(pinEntry===PIN_CODE){ adminUnlocked=true; setTimeout(()=>rAdmin(document.getElementById('screen')),200); }
-    else{ document.getElementById('pinerr').textContent='Code incorrect, réessayez.'; setTimeout(()=>{ pinEntry=''; updateDots(); document.getElementById('pinerr').textContent=''; },1000); }
+    if(pinEntry===PIN_CODE){adminUnlocked=true;setTimeout(()=>rAdmin(document.getElementById('screen')),200);}
+    else{document.getElementById('pinerr').textContent='Code incorrect, réessayez.';setTimeout(()=>{pinEntry='';updateDots();document.getElementById('pinerr').textContent='';},1000);}
   }
 }
-function updateDots(){
-  for(let i=0;i<4;i++){ const d=document.getElementById('pd'+i); if(d) d.className='pin-dot'+(i<pinEntry.length?' filled':''); }
-}
-function logout(){ adminUnlocked=false; pinEntry=''; go('accueil'); }
-function openModal(){ modalOpen=true; selTeams=[]; rAdmin(document.getElementById('screen')); }
-function closeModal(){ modalOpen=false; rAdmin(document.getElementById('screen')); }
-function togChip(k){
-  const i=selTeams.indexOf(k);
-  if(i>=0) selTeams.splice(i,1); else selTeams.push(k);
-  rAdmin(document.getElementById('screen'));
-}
+function updateDots(){for(let i=0;i<4;i++){const d=document.getElementById('pd'+i);if(d)d.className='pin-dot'+(i<pinEntry.length?' filled':'');}}
+function logout(){adminUnlocked=false;pinEntry='';go('accueil');}
+function setTab(t){adminTab=t;rAdmin(document.getElementById('screen'));}
+
+// ── MODAL HELPERS ──
+function closeModal(){modalType='';editEvtId=null;editTeamId=null;editMemberId=null;selTeams=[];rAdmin(document.getElementById('screen'));}
+
+// ── EVENTS ──
+function openNewEvt(){modalType='event';editEvtId=null;selTeams=[];rAdmin(document.getElementById('screen'));}
+function openEditEvt(id){modalType='event';editEvtId=id;const e=EVENTS.find(x=>x.id===id);selTeams=e?[...e.teams]:[];rAdmin(document.getElementById('screen'));}
+function togChip(k){const i=selTeams.indexOf(k);if(i>=0)selTeams.splice(i,1);else selTeams.push(k);rAdmin(document.getElementById('screen'));}
 function saveEvt(){
   const title=(document.getElementById('ft')?.value||'').trim();
   if(!title){alert('Merci de saisir un titre.');return;}
@@ -340,13 +367,72 @@ function saveEvt(){
   const recur=(document.getElementById('fr')?.value||'').trim();
   const notes=(document.getElementById('fn')?.value||'').trim();
   const cols=['#1A3A5C','#185FA5','#854F0B','#0F6E56','#533AB7','#D85A30'];
-  EVENTS.push({id:Date.now(),title,date,time,color:cols[EVENTS.length%cols.length],teams:selTeams.length?selTeams:['all'],recur,notes});
-  save(); modalOpen=false;
-  rAdmin(document.getElementById('screen'));
-  document.getElementById('hs').textContent=`${EVENTS.length} événements enregistrés`;
+  if(editEvtId){
+    const e=EVENTS.find(x=>x.id===editEvtId);
+    if(e){e.title=title;e.date=date;e.time=time;e.recur=recur;e.notes=notes;e.teams=selTeams.length?selTeams:['all'];}
+  } else {
+    EVENTS.push({id:Date.now(),title,date,time,color:cols[EVENTS.length%cols.length],teams:selTeams.length?selTeams:['all'],recur,notes});
+  }
+  saveAll();closeModal();
+}
+function delEvt(id){
+  if(!confirm('Supprimer cet événement ?'))return;
+  EVENTS=EVENTS.filter(e=>e.id!==id);
+  saveAll();modalType='';editEvtId=null;rAdmin(document.getElementById('screen'));
 }
 
-if('serviceWorker' in navigator){ window.addEventListener('load',()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); }); }
+// ── TEAMS ──
+function openNewTeam(){modalType='team';editTeamId=null;rAdmin(document.getElementById('screen'));}
+function openEditTeam(id){modalType='team';editTeamId=id;rAdmin(document.getElementById('screen'));}
+function saveTeam(){
+  const name=(document.getElementById('tname')?.value||'').trim();
+  if(!name){alert('Merci de saisir un nom.');return;}
+  const icon=document.getElementById('ticon')?.value||'👥';
+  const iconBg=document.getElementById('tbg')?.value||TEAM_COLORS[0];
+  if(editTeamId){
+    const t=TEAMS.find(x=>x.id===editTeamId);
+    if(t){t.name=name;t.icon=icon;t.iconBg=iconBg;}
+  } else {
+    const newId='team_'+Date.now();
+    TEAMS.push({id:newId,name,icon,iconBg,members:[]});
+  }
+  saveAll();closeModal();
+}
+function delTeam(id){
+  if(!confirm('Supprimer cette équipe et tous ses membres ?'))return;
+  TEAMS=TEAMS.filter(t=>t.id!==id);
+  saveAll();modalType='';editTeamId=null;rAdmin(document.getElementById('screen'));
+}
+
+// ── MEMBERS ──
+let selColorIdx=0;
+function openAddMember(teamId){modalType='addmember';editTeamId=teamId;editMemberId=null;selColorIdx=0;rAdmin(document.getElementById('screen'));}
+function openEditMember(teamId,memberId){modalType='member';editTeamId=teamId;editMemberId=memberId;const t=TEAMS.find(x=>x.id===teamId);const m=t?.members.find(x=>x.id===memberId);selColorIdx=m?MEMBER_COLORS.findIndex(c=>c[0]===m.bg):0;rAdmin(document.getElementById('screen'));}
+function selMemberColor(i){selColorIdx=i;rAdmin(document.getElementById('screen'));}
+function saveMember(){
+  const name=(document.getElementById('mname')?.value||'').trim();
+  if(!name){alert('Merci de saisir un prénom.');return;}
+  const role=(document.getElementById('mrole')?.value||'').trim()||'Membre';
+  const [bg,tc]=MEMBER_COLORS[selColorIdx]||MEMBER_COLORS[0];
+  const t=TEAMS.find(x=>x.id===editTeamId);
+  if(!t)return;
+  if(editMemberId){
+    const m=t.members.find(x=>x.id===editMemberId);
+    if(m){m.name=name;m.role=role;m.bg=bg;m.tc=tc;m.ini=ini(name);}
+  } else {
+    t.members.push({id:Date.now(),name,role,ini:ini(name),bg,tc});
+  }
+  saveAll();closeModal();
+}
+function delMember(memberId,teamId){
+  if(!confirm('Retirer ce membre ?'))return;
+  const tid=teamId||editTeamId;
+  const t=TEAMS.find(x=>x.id===tid);
+  if(t)t.members=t.members.filter(m=>m.id!==memberId);
+  saveAll();modalType='';rAdmin(document.getElementById('screen'));
+}
+
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
 go('accueil');
 </script>
 </body>
